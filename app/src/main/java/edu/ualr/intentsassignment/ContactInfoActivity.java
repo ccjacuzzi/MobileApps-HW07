@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import edu.ualr.intentsassignment.databinding.ActivityContactInfoBinding;
+import edu.ualr.intentsassignment.model.Contact;
+
 public class ContactInfoActivity extends AppCompatActivity {
     // TODO 03. Create a new layout file to define the GUI elements of the ContactInfoActivity.
     // TODO 04. Define the basic skeleton of the ContactInfoActivity. Inflate the layout defined in the first step to display the GUI elements on screen.
@@ -22,6 +24,10 @@ public class ContactInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = ActivityContactInfoBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
+
+        Contact c = getIntent().getParcelableExtra("newContact");
+
+        mBinding.testResult.setText(c.getLastName());
     }
 
     public void onButtonClick(View view){

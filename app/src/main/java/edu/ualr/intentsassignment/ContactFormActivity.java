@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import edu.ualr.intentsassignment.databinding.ActivityContactFormBinding;
+import edu.ualr.intentsassignment.model.Contact;
 
 
 public class ContactFormActivity extends AppCompatActivity {
@@ -21,8 +22,20 @@ public class ContactFormActivity extends AppCompatActivity {
         setContentView(mBinding.getRoot());
     }
 
+    // On button click, create a new Intent, create a new Contact, attach the Contact to the intent, startActivity
     public void onButtonClick(View view){
         Intent intent = new Intent(ContactFormActivity.this, ContactInfoActivity.class);
+
+        Contact newContact = new Contact();
+        newContact.setFirstName(mBinding.firstNameEditText.getText().toString());
+        newContact.setLastName(mBinding.lastNameEditText.getText().toString());
+        newContact.setPhoneNumber(mBinding.phoneEditText.getText().toString());
+        newContact.setEmailAddress(mBinding.emailEditText.getText().toString());
+        newContact.setAddress(mBinding.addressEditText.getText().toString());
+        newContact.setWebsite(mBinding.websiteEditText.getText().toString());
+
+        intent.putExtra("newContact", newContact);
+
         startActivity(intent);
     }
 
