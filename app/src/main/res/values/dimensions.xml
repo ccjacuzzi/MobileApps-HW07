@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contactLayoutMargin">30dp</dimen>
+    <dimen name="contactIconMarginEnd">25dp</dimen>
+    <dimen name="contactIconHeight">30dp</dimen>
+</resources>
