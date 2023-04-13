@@ -1,6 +1,7 @@
 package edu.ualr.intentsassignment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -38,6 +39,39 @@ public class ContactInfoActivity extends AppCompatActivity {
     public void onButtonClick(View view){
         Intent intent = new Intent(this, ContactFormActivity.class);
         startActivity(intent);
+    }
+
+    public void onCallButtonClick(View view){
+        String phoneNumberUri = mBinding.phoneEditText.getText().toString();
+        Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumberUri));
+        startActivity(callIntent);
+    }
+
+    public void onTextButtonClick(View view){
+        String phoneNumberUri = mBinding.phoneEditText.getText().toString();
+        Intent textIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + phoneNumberUri));
+        startActivity(textIntent);
+    }
+
+    public void onEmailButtonClick(View view){
+        String emailAddressString = mBinding.emailEditText.getText().toString();
+        Uri emailUri = Uri.parse("mailto:" + emailAddressString + "?subject=Email" + "Subject&body=Email Body");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, emailUri);
+        startActivity(emailIntent);
+    }
+
+    public void onWebsiteButtonClick(View view){
+        String websiteUrlString = "https://" + mBinding.websiteEditText.getText().toString();
+        Uri websiteUri = Uri.parse(websiteUrlString);
+        Intent websiteIntent = new Intent(Intent.ACTION_VIEW, websiteUri);
+        startActivity(websiteIntent);
+    }
+
+    public void onAddressButtonClick(View view){
+        String addressString = mBinding.addressEditText.getText().toString();
+        Uri addressUri = Uri.parse("geo:0,0?q=" + addressString);
+        Intent addressIntent = new Intent(Intent.ACTION_VIEW, addressUri);
+        startActivity(addressIntent);
     }
 
 }

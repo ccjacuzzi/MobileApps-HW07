@@ -43,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:text="Call"
                 app:chipIcon="@drawable/ic_phone_black_24dp"
-                style="@style/AppTheme.ContactInfo.Chip"/>
+                style="@style/AppTheme.ContactInfo.Chip"
+                android:onClick="onCallButtonClick"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/textChip"
@@ -51,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:text="Text"
                 app:chipIcon="@drawable/ic_textsms_black_24dp"
-                style="@style/AppTheme.ContactInfo.Chip"/>
+                style="@style/AppTheme.ContactInfo.Chip"
+                android:onClick="onTextButtonClick"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/emailChip"
@@ -59,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:text="Email"
                 app:chipIcon="@drawable/ic_email_black_24dp"
-                style="@style/AppTheme.ContactInfo.Chip"/>
+                style="@style/AppTheme.ContactInfo.Chip"
+                android:onClick="onEmailButtonClick"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/mapChip"
@@ -67,7 +70,17 @@
                 android:layout_height="wrap_content"
                 android:text="Map"
                 app:chipIcon="@drawable/ic_place_black_24dp"
-                style="@style/AppTheme.ContactInfo.Chip"/>
+                style="@style/AppTheme.ContactInfo.Chip"
+                android:onClick="onAddressButtonClick"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/websiteChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Website"
+                app:chipIcon="@drawable/ic_public_black_24dp"
+                style="@style/AppTheme.ContactInfo.Chip"
+                android:onClick="onWebsiteButtonClick"/>
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
