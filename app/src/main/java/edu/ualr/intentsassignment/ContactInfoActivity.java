@@ -61,7 +61,11 @@ public class ContactInfoActivity extends AppCompatActivity {
     }
 
     public void onWebsiteButtonClick(View view){
-        String websiteUrlString = "https://" + mBinding.websiteEditText.getText().toString();
+        String websiteUrlString = mBinding.websiteEditText.getText().toString();
+        // check for properly formatted url
+        if (!websiteUrlString.startsWith("http://") && !websiteUrlString.startsWith("https://")){
+            websiteUrlString = "http://" + websiteUrlString;
+        }
         Uri websiteUri = Uri.parse(websiteUrlString);
         Intent websiteIntent = new Intent(Intent.ACTION_VIEW, websiteUri);
         startActivity(websiteIntent);
