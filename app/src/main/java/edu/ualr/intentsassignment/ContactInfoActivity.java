@@ -53,6 +53,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         startActivity(textIntent);
     }
 
+    // Email must be setup on the device. I logged into my gmail when testing this.
     public void onEmailButtonClick(View view){
         String emailAddressString = mBinding.emailEditText.getText().toString();
         Uri emailUri = Uri.parse("mailto:" + emailAddressString + "?subject=Email" + "Subject&body=Email Body");
@@ -71,6 +72,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         startActivity(websiteIntent);
     }
 
+    // geo:0,0 sets the lat/long at 0,0. ?q= adds the string to the search bar.
     public void onAddressButtonClick(View view){
         String addressString = mBinding.addressEditText.getText().toString();
         Uri addressUri = Uri.parse("geo:0,0?q=" + addressString);
