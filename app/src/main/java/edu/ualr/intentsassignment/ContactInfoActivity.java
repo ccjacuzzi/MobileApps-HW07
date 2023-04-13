@@ -27,7 +27,12 @@ public class ContactInfoActivity extends AppCompatActivity {
 
         Contact c = getIntent().getParcelableExtra("newContact");
 
-        mBinding.testResult.setText(c.getLastName());
+        String fullName = c.getFirstName() + " " + c.getLastName();
+        mBinding.nameTextView.setText(fullName);
+        mBinding.phoneEditText.setText(c.getPhoneNumber());
+        mBinding.emailEditText.setText(c.getEmailAddress());
+        mBinding.addressEditText.setText(c.getAddress());
+        mBinding.websiteEditText.setText(c.getWebsite());
     }
 
     public void onButtonClick(View view){
